@@ -25,4 +25,5 @@ urlpatterns = [
     path("homepage/",views.homepage),
     path("display_date/",views.display_date),
     path("menu/",views.menu),
+    path("dishes/<str:dish>", views.menuitems)
 ]
