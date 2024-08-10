@@ -25,5 +25,6 @@ urlpatterns = [
     path("homepage/",views.homepage),
     path("display_date/",views.display_date),
     path("menu/",views.menu),
-    path("dishes/<str:dish>", views.menuitems)
+    path("dishes/<str:dish>", views.menuitems),
+    path("home/", views.form_view)
 ]

@@ -5,6 +5,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
 
+from myapp.forms import LogForm
+
 def say_hello(request):
     return HttpResponse('Hello World')
 
@@ -29,3 +31,12 @@ def menuitems(request,dish):
     description = items[dish]
     
     return HttpResponse(f"<h2> {dish} </h2>" + description)
+
+def form_view(request):
+    form = LogForm()
+    if request.method == 'POST':
+        form = LogForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {"form":form}
+    return render(request, "home.html", context)
