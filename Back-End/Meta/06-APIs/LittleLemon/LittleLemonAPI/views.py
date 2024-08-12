@@ -1,11 +1,17 @@
-from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from .models import MenuItem
 from .serializers import MenuItemSerializer
+from django.shortcuts import get_object_or_404
 
-class MenuItemViews(generics.ListCreateAPIView):
-    queryset = MenuItem.objects.all()
-    serializer_class = MenuItemSerializer
+@api_view()
+def menu_items(request):
+    items = MenuItem.objects.all()
+    serialized_items = MenuItemSerializer(items, many = True)
+    return Response(serialized_items.data)
 
-class SingleMenuItemViews(generics.RetrieveUpdateDestroyAPIView, generics.DestroyAPIView):
-    queryset = MenuItem.objects.all()
-    serializer_class = MenuItemSerializer
+@api_view()
+def single_item(request, id):
+    items = get_object_or_404(MenuItem, pk=id)
+    serialized_items = MenuItemSerializer(items)
+    return Response(serialized_items.data)
