@@ -1,1 +1,0 @@
-# **Course 07. The Full Stack**

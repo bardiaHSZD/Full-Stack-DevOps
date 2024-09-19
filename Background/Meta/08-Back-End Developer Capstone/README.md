@@ -1,1 +1,0 @@
-# **Course 08. Back-End Developer Capstone**

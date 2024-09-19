@@ -1,1 +1,0 @@
-# **Course 04. Introduction to Databases for Back-End Development**
