@@ -107,7 +107,7 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.email
-
+ 
 
     def save(self, *args, **kwargs):
         if self.latitude and self.longitude:
